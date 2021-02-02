@@ -6,7 +6,7 @@ You can see the complete documentation here: (I'll upload blog soon)
 Data: I have uploaded data in the repo                                                                                                                                                                          
 ### End to End T20 Cricket score prediction: 
 
-You can see the somplte documentation here:                                                                                                                                                   
+You can see the complete documentation here:  (I'll upload blog soon)                                                                                                                                                 
 Data: Some of the data I have uploaded in the repo, I used Image data set for pneumonia and malaria.                                                                                                                                                                           
 Malaria dataset: https://www.kaggle.com/iarunava/cell-images-for-detecting-malaria                                                                                                     
 Pneummonia dataset: https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia                                                                                                                       
