@@ -88,7 +88,13 @@ def upload_file():
             predicted_class = np.asscalar(np.argmax(result, axis=1))
             accuracy = round(result[0][predicted_class] * 100, 2)
             label = indices[predicted_class]
-            return render_template('malariapredict.html', image_file_name=file.filename, label=label, accuracy=accuracy)
+            
+            if accuracy<72:
+                prediction = "Please, Check with the Doctor."
+            else:
+                prediction = "Result is accurate"
+            
+            return render_template('malariapredict.html', image_file_name=file.filename, label=label, accuracy=accuracy, prediction = prediction)
         # except:
         #     flash("Please select the image first !!", "danger")
         #     return redirect(url_for("Malaria"))
@@ -113,7 +119,13 @@ def upload11_file():
             else:
                 label = indices[0]
                 accuracy = 100 - result
-            return render_template('pneumoniapredict.html', image_file_name=file.filename, label=label, accuracy=accuracy)
+            
+            if accuracy<72:
+                prediction = "Please, Check with the Doctor."
+            else:
+                prediction = "Result is accurate"
+                
+            return render_template('pneumoniapredict.html', image_file_name=file.filename, label=label, accuracy=accuracy, prediction = prediction)
         # except:
         #     flash("Please select the image first !!", "danger")
         #     return redirect(url_for("Pneumonia"))
@@ -138,8 +150,13 @@ def upload111_file():
             predicted_class = np.asscalar(np.argmax(result, axis=1))
             accuracy = round(result[0][predicted_class] * 100, 2)
             label = indices[predicted_class]
-
-            return render_template('coronapredict.html', image_file_name = file.filename, label = label, accuracy = accuracy)
+            
+            if accuracy<72:
+                prediction = "Please, Check with the Doctor."
+            else:
+                prediction = "Result is accurate"
+                
+            return render_template('coronapredict.html', image_file_name = file.filename, label = label, accuracy = accuracy, prediction = prediction)
         # except:
         #     flash("Please select the image first !!", "danger")
         #     return redirect(url_for("Pneumonia"))
@@ -151,13 +168,25 @@ def send_file(filename):
 
 
 @app.route("/")
-@app.route("/index")
+@app.route("/index1")
 def index():
-    return render_template("index.html")
+    return render_template("index1.html")
 
-# @app.route("/about")
-# def about():
-#     return render_template("about.html")
+@app.route("/index2")
+def index2():
+    return render_template("index2.html")
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+@app.route("/login")
+def login():
+    return render_template("login.html")
+
+@app.route("/signup")
+def signup():
+    return render_template("signup.html")
 
 @app.route("/covid_19")
 def covid_19():
@@ -170,7 +199,7 @@ def Malaria():
 
 @app.route("/Pneumonia")
 def Pneumonia():
-    return render_template("pneumonia.html")
+    return render_template("pneumonia.html"))
 
 if __name__ == "__main__":
     app.run(debug=True)
